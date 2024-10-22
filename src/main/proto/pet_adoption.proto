@@ -1,0 +1,49 @@
+// Use the Proto3 syntax version. Proto3 is the third version of Protocol Buffers with simpler and more intuitive syntax.
+syntax = "proto3";
+
+// Define the package name of the protocol file, typically used to avoid naming conflicts.
+// When generating code, the package name will be mapped to namespaces or package structures in different languages.
+package petadoption;
+
+// Define the gRPC service PetAdoptionService.
+// This service contains two RPC methods, which are used for registering pets and searching for pets.
+service PetAdoptionService {
+
+  // Define the RegisterPet RPC method.
+  // It takes PetInfo as a request and returns RegisterResponse.
+  rpc RegisterPet (PetInfo) returns (RegisterResponse);
+
+  // Define the SearchPet RPC method.
+  // It takes SearchRequest as a request and returns SearchResponse.
+  rpc SearchPet (SearchRequest) returns (SearchResponse);
+}
+
+// Define the PetInfo message type, which represents pet information.
+// It includes the pet's name, gender, age, breed, and binary data for the picture.
+message PetInfo {
+  string name = 1;    // The name of the pet, using the string type.
+  string gender = 2;  // The gender of the pet, using the string type.
+  int32 age = 3;      // The age of the pet, using a 32-bit integer (int32).
+  string breed = 4;   // The breed of the pet, using the string type.
+  bytes picture = 5;  // The pet's picture, using the bytes type (for storing binary data).
+}
+
+// Define the RegisterResponse message type.
+// After successfully registering a pet, a response is returned with a confirmation message.
+message RegisterResponse {
+  string message = 1; // Contains the message returned by the server (e.g., "Pet registered successfully!").
+}
+
+// Define the SearchRequest message type.
+// Used to initiate a pet search request, containing the search key and corresponding value.
+message SearchRequest {
+  string key = 1;    // The search key, such as "name", "gender", "age", "breed".
+  string value = 2;  // The search value, based on the type of key (e.g., "Fluffy" for key "name").
+}
+
+// Define the SearchResponse message type.
+// Used to return search results, containing a list of matching pets.
+message SearchResponse {
+  repeated PetInfo pets = 1; // A list of returned pets, containing all PetInfo objects that match the criteria.
+  // repeated indicates that this field is an array and can contain multiple PetInfo objects.
+}
