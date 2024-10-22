@@ -2,9 +2,9 @@
 ----
 ## Team Members
 | Name | UTA ID | Email | Finished Task |
-| --- | --- | --- |---------------|
-| Chenfei Liao | 1002234830 | cxl4830@mavs.uta.edu | Q1, Q2 |
-| Xuhao Xie | 1002249206 | xxx9206@mavs.uta.edu | Q3, Q4 |
+| --- | --- | --- |---------|
+| Chenfei Liao | 1002234830 | cxl4830@mavs.uta.edu | Q1, Q2  |
+| Xuhao Xie | 1002249206 | xxx9206@mavs.uta.edu | Q3, Q4  |
 ----
 
 ## Question 2
@@ -156,6 +156,10 @@ To register a pet, follow the prompts to enter the pet's details:
 - Age (in years)
 - Breed
 - File path to the pet's photo
+- We have integrated two pet images for your testing, located at the following path:
+`TestPhoto/Cat.jpg`  
+`TestPhoto/Dog.jpg`
+
 
 #### Searching for a Pet
 To search for a pet, select the search option and enter the criteria (name, gender, age, or breed).
